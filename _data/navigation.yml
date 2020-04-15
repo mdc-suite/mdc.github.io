@@ -1,0 +1,26 @@
+main:
+  - title: "MDC"
+    url: /tools/mdc
+
+mdc:
+  - title: "MDC"
+    url: /tools/mdc
+  - title: "Documentation"
+    children:
+      - title: "Baseline MDC Core"
+        url: /tools/mdc/docs/baseline
+      - title: "Structural Profiler"
+        url: /tools/mdc/docs/profiler
+      - title: "Power Manager"
+        url: /tools/mdc/docs/powermanager
+      - title: "Coprocessor Generator"
+        url: /tools/mdc/docs/coprocessorgenerator
+  - title: "Tutorials"
+    url: /tools/mdc/tutorials
+    children:
+      - title: "01 - First Steps"
+        url: /tools/mdc/tutorials/setup
+  - title: "Publications"
+    url: /tools/mdc/publications
+  - title: "Get MDC"
+    url: /tools/mdc/get
