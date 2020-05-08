@@ -20,7 +20,7 @@ mdc:
     children:
       - title: "01 - Installation"
         url: /tools/mdc/tutorials/setup
-      - title: "01 - Baseline"
+      - title: "02 - Baseline"
         url: /tools/mdc/tutorials/baseline
   - title: "Publications"
     url: /tools/mdc/publications
