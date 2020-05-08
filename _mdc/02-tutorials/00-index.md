@@ -11,7 +11,7 @@ toc_sticky: true
 
 ## [Installation guide](/tools/mdc/tutorials/setup)
 
-The first tutorial covers the following topic:
+This tutorial covers the following topic:
 
 * Installing and setting up MDC tool for Linux or Windows distributions.
 
@@ -23,14 +23,13 @@ Requirements:
 * maven
 
 
-## [Baseline](/tools/mdc/tutorials/baseline)
+## [Merging Process](/tools/mdc/tutorials/mergingprocess)
 
-The first tutorial covers the following topic:
+This tutorial covers the following topic:
 
 * launch the MDC runtime workspace
 * import a new project
 * generate a multi-dataflow using MDC (MDC merging process)
-* generate the CGR HDL (MDC dataflow-to-hardware)
 
 
 Requirements:

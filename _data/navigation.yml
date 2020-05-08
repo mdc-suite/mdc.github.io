@@ -20,8 +20,8 @@ mdc:
     children:
       - title: "01 - Installation"
         url: /tools/mdc/tutorials/setup
-      - title: "02 - Baseline"
-        url: /tools/mdc/tutorials/baseline
+      - title: "02 - Merging Process"
+        url: /tools/mdc/tutorials/mergingprocess
   - title: "Publications"
     url: /tools/mdc/publications
   - title: "Get MDC"

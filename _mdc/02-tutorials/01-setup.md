@@ -9,24 +9,35 @@ toc_max_header: 3
 toc_sticky: true
 ---
 
+This tutorial covers the following topic:
+
+* Installing and setting up MDC tool for Linux or Windows distributions.
 
 
-### Install Eclipse IDE 
+Requirements:
+* Eclipse Neon or later
+* Java 8
+* Orcc installation
+* maven
+
+
+
+## Install Eclipse IDE 
 * Download Eclipse Neon or later (requires Java 8)
     * Eclipse IDE for Java and DSL Developers (http://www.eclipse.org/downloads/packages/)
         * Requires new software installation (Help > Install New Software … > search Graphiti on all available sites)
         
 
 
-### Linux OS:
-#### Install Orcc
+## Linux OS
+### Install Orcc
 * Clone the Orcc Git repository 
     * git clone git@github.com:orcc/orcc.git)
 * Build Orcc with maven
     * cd orcc/eclipse/plugins
     * mvn install
 
-#### Setup the Orcc framework
+### Setup the Orcc framework
 * Open Eclipse (a “design time” workspace, that is the workspace fot the source code of the tool, has to be selected)
 * Import Orcc plugins (File > Import > General > Existing Projects into Workspace > root directory orcc/eclipse/plugins (check “Search for nested projects” and uncheck “net.sf.orcc”))
     * **If there are Maven errors**, such as: “maven project build maven lifecycle mapping problem”, right click on the project folders and select “Disable Maven Nature”
@@ -37,18 +48,18 @@ toc_sticky: true
     * The “design time” workspace is the one containing the framework (Orcc and MDC) and it is the place where the framework itself could be modified
     * The “run time” workspace is a running instance of the framework where it can be tested and debugged
     * 
-#### Clone the MDC Git repository
+### Clone the MDC Git repository
 * git clone https://github.com/mdc-suite/mdc.git 
 
-#### Import MDC plugins
+### Import MDC plugins
 * Import MDC in the same “design time” workspace where Orcc has been previously imported
 * Import MDC plugins (File > Import > General > Existing Projects into Workspace > root directory mdcproject/trunk/ (check “Search for nested projects”)
     * Right click on it.mdc.tool → properties → Text file encoding → Other: UTF-8
 
 
-### Windows OS:
+## Windows OS
 
-#### Install Orcc 
+### Install Orcc 
 * Clone the Orcc Git repository
     * Install a git bash, such as: https://git-scm.com/downloads 
     * go to the directory that you want to place the repository
@@ -62,7 +73,7 @@ toc_sticky: true
     * cd orcc/eclipse/plugins
     * mvn install
 
-#### Setup the Orcc framework
+### Setup the Orcc framework
 
 * Open Eclipse (a “design time” workspace has to be selected)
 * Import Orcc plugins (File > Import > General > Existing Projects into Workspace > root directory orcc/eclipse/plugins (check “Search for nested projects” and uncheck “net.sf.orcc”))
@@ -79,11 +90,11 @@ toc_sticky: true
     * The “run time” workspace is a running instance of the framework where it can be tested and debugged
 
 
-#### Clone the MDC Git repository 
+### Clone the MDC Git repository 
 * git clone https://github.com/mdc-suite/mdc.git
 
 
-#### Import MDC plugins into Eclipse 
+### Import MDC plugins into Eclipse 
 * Import MDC in the same “design time” workspace where Orcc has been previously imported
 * Import MDC plugins (File > Import > General > Existing Projects into Workspace > root directory mdcproject/trunk/ (check “Search for nested projects”)
     * Right click on it.mdc.tool → properties → Text file encoding → Other: UTF-8
