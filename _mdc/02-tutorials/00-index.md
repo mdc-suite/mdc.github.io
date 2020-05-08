@@ -27,7 +27,7 @@ Requirements:
 
 This tutorial covers the following topic:
 
-* launch the MDC runtime workspace
+* application description
 * import a new project
 * generate a multi-dataflow using MDC (MDC merging process)
 
@@ -35,4 +35,3 @@ This tutorial covers the following topic:
 Requirements:
 * [Installation guide](/tools/mdc/tutorials/setup)
 * [Get MDC Applications](https://github.com/mdc-suite/mdc-test)
-

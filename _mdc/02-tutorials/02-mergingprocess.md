@@ -1,5 +1,5 @@
 ---
-title: "MDC -- Baseline"
+title: "MDC -- Merging Process"
 permalink: /tools/mdc/tutorials/mergingprocess
 
 toc: true
@@ -12,7 +12,6 @@ toc_sticky: true
 This tutorial covers the following topic:
 
 * application description
-* launch the MDC runtime workspace
 * import a new project
 * generate a multi-dataflow using MDC (MDC merging process)
 
@@ -43,8 +42,18 @@ Following figure illustrate the single networks for Roberts and Sobel algorithms
 The single networks and HDL component libraries have been created using [CAPH tool](http://caph.univ-bpclermont.fr). CAPH is a framework for the specification, simulation and
 implementation of stream processing applications based on a [dynamic Dataflow MoC](https://www.researchgate.net/publication/278698706_CAPH_A_language_for_implementing_stream-processing_applications_on_FPGAs).
 
-## Launch the MDC runtime workspace
-
 ## Import a new project into workspace
+
+**If you are using the developer version, you firstly need to run the Runtime Workspace, launching the Eclipse Application as described in the [Installation Guide](/tools/mdc/tutorials/setup).**
+
+The Runtime Workspace appears as an Eclipse IDE. To import the project:
+
+* File > Import... > General > Existing Project into Workspace
+* Browse to  Tutorial_EdgeDetection
+* OK > Finish
+
+{:refdef: style="text-align: center;"}
+![](/assets/images/mdc/tutorials/mdc-runtimeWS.png)
+{: refdef}
 
 ## MDC Merging Process
