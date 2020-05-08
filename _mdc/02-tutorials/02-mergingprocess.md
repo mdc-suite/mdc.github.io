@@ -30,7 +30,18 @@ algorithms consider the convolution of two kernels with a grayscale image, in or
 ![](/assets/images/mdc/tutorials/edgeDetection.png)
 {: refdef}
 
+Following figure illustrate the single networks for Roberts and Sobel algorithms.
 
+{:refdef: style="text-align: center;"}
+![Roberts](/assets/images/mdc/tutorials/roberts.svg)
+{: refdef}
+
+{:refdef: style="text-align: center;"}
+![Sobel](/assets/images/mdc/tutorials/sobel.svg)
+{: refdef}
+
+The single networks and HDL component libraries have been created using [CAPH tool](http://caph.univ-bpclermont.fr). CAPH is a framework for the specification, simulation and
+implementation of stream processing applications based on a [dynamic Dataflow MoC](https://www.researchgate.net/publication/278698706_CAPH_A_language_for_implementing_stream-processing_applications_on_FPGAs).
 
 ## Launch the MDC runtime workspace
 
