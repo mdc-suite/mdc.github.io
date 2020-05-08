@@ -1,5 +1,5 @@
 ---
-title: "MDC -- Developer Installation Guide"
+title: "MDC -- Baseline"
 permalink: /tools/mdc/tutorials/baseline
 
 toc: true

@@ -27,10 +27,13 @@ Requirements:
 
 The first tutorial covers the following topic:
 
-* multi-dataflow generation (MDC merging process)
-* CGR HDL generation (MDC dataflow-to-hardware)
+* launch the MDC runtime workspace
+* import a new project
+* generate a multi-dataflow using MDC (MDC merging process)
+* generate the CGR HDL (MDC dataflow-to-hardware)
 
 
 Requirements:
 * [Installation guide](/tools/mdc/tutorials/setup)
+* [Get MDC Applications](https://github.com/mdc-suite/mdc-test)
 
