@@ -18,8 +18,10 @@ mdc:
   - title: "Tutorials"
     url: /tools/mdc/tutorials
     children:
-      - title: "01 - First Steps"
+      - title: "01 - Installation"
         url: /tools/mdc/tutorials/setup
+      - title: "01 - Baseline"
+        url: /tools/mdc/tutorials/baseline
   - title: "Publications"
     url: /tools/mdc/publications
   - title: "Get MDC"

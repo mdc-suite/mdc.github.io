@@ -23,7 +23,7 @@ Requirements:
 * maven
 
 
-## [Installation guide](/tools/mdc/tutorials/baseline)
+## [Baseline](/tools/mdc/tutorials/baseline)
 
 The first tutorial covers the following topic:
 
@@ -32,5 +32,5 @@ The first tutorial covers the following topic:
 
 
 Requirements:
-* none
+* [Installation guide](/tools/mdc/tutorials/setup)
 
