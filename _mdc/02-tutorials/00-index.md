@@ -9,14 +9,16 @@ toc_max_header: 2
 toc_sticky: true
 ---
 
-## [First Steps](/tools/artico3/tutorials/setup)
+## [First Steps](/tools/mdc/tutorials/setup)
 
-This tutorial covers the following topics:
+The first tutorial covers the following topic:
 
-* Installing and setting up MDC tool
-*
+* Installing and setting up MDC tool for Linux or Windows distributions.
+
 
 Requirements:
-
-* None
+* Eclipse Neon or later
+* Java 8
+* Orcc installation
+* maven
 

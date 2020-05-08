@@ -1,14 +1,21 @@
-# Multi-Dataflow Composer suite 
-## Developer Installation Guide
+---
+title: "MDC -- Developer Installation Guide"
+permalink: /tools/mdc/tutorials/setup
+
+toc: true
+toc_label: "Index"
+toc_min_header: 2
+toc_max_header: 3
+toc_sticky: true
+---
+
+
 
 #### Install Eclipse IDE 
-* Download Eclipse Neon (requires Java 8) - **Option II** is recommended
-    * **Option I** - Eclipse for RCP and RAP Developers, recommended by Orcc (http://www.eclipse.org/downloads/packages/) **not tested recently**
-        * Requires new software installation (Help > Install New Software … > search Xtext, EMF, Graphiti on all available sites)
-    * **Option II** - Eclipse IDE for Java and DSL Developers (http://www.eclipse.org/downloads/packages/)
+* Download Eclipse Neon or later (requires Java 8)
+    * Eclipse IDE for Java and DSL Developers (http://www.eclipse.org/downloads/packages/)
         * Requires new software installation (Help > Install New Software … > search Graphiti on all available sites)
         
- **Recently tested with Eclipse 2019-12!**
 
 
 ### Linux OS:
