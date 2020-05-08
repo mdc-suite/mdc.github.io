@@ -27,8 +27,7 @@ In this tutorial it is adopted an edge detection application involving two diffe
 algorithms consider the convolution of two kernels with a grayscale image, in order to highlight the high-frequency variations due to the horizontal and vertical edges. Following figure illustrates the convolution of kernels (x and y) of Sobel (up) and Roberts (down) operators with an input image (A).
 
 {:refdef: style="text-align: center;"}
-![Sobel](/assets/images/mdc/tutorials/sobel3Dv.svg)
-![Roberts](/assets/images/mdc/tutorials/roberts3Dv.pdf)
+![Sobel](/assets/images/mdc/tutorials/sobel3Dv.svg)![Roberts](/assets/images/mdc/tutorials/roberts3Dv.eps)
 {: refdef}
 
 
