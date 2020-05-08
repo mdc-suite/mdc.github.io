@@ -22,3 +22,15 @@ Requirements:
 * Orcc installation
 * maven
 
+
+## [Installation guide](/tools/mdc/tutorials/baseline)
+
+The first tutorial covers the following topic:
+
+* multi-dataflow generation (MDC merging process)
+* CGR HDL generation (MDC dataflow-to-hardware)
+
+
+Requirements:
+* none
+
