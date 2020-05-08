@@ -11,7 +11,7 @@ toc_sticky: true
 
 
 
-#### Install Eclipse IDE 
+### Install Eclipse IDE 
 * Download Eclipse Neon or later (requires Java 8)
     * Eclipse IDE for Java and DSL Developers (http://www.eclipse.org/downloads/packages/)
         * Requires new software installation (Help > Install New Software … > search Graphiti on all available sites)

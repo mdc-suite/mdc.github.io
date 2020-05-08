@@ -9,7 +9,7 @@ toc_max_header: 2
 toc_sticky: true
 ---
 
-## [First Steps](/tools/mdc/tutorials/setup)
+## [Installation guide](/tools/mdc/tutorials/setup)
 
 The first tutorial covers the following topic:
 
