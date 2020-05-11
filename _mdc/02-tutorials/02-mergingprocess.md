@@ -57,3 +57,31 @@ The Runtime Workspace appears as an Eclipse IDE. To import the project:
 {: refdef}
 
 ## MDC Merging Process
+To Run the MDC Merging Process
+* **Create a new run configuration**: Run > Run configurations..., right click on Orcc compilation then select **New**.
+* **Name**: chose a name for the configuration
+* **Project**: select *Tutorial_EdgeDetection* project
+* **Backend**
+  * **Select a backend**: MDC
+  * **Output Folder**: select an output folder. (e.g. “outputMDC/baseline”).
+
+  {:refdef: style="text-align: center;"}
+  ![](/assets/images/mdc/tutorials/projectMDC.png)
+  {: refdef}
+
+* **Options**
+  * **Tick** “List of Networks to be Compiled and Merged”
+  * **Number of Networks**: 2
+  * **XDF List of Files**: select the two input dataflow networks *edgeDetection.roberts* and *edgeDetection.sobel*
+  * **Merging Algorithm**: EMPIRIC
+  * **Tick** “Generate RVC-CAL multi-dataflow”. And **Run**.
+
+  {:refdef: style="text-align: center;"}
+  ![](/assets/images/mdc/tutorials/multidataflowGenerationMDC.png)
+  {: refdef}
+
+This step merges the two input dataflow networks, through the selected datapath merging algorithm. Click on Run. Refresh the project folder to visualize the output folder with the generated multi-dataflow. In the generated networks you can notice as actors are shared, and functionalities of the two input networks are guaranteed by the insertion of the switching boxes.
+
+{:refdef: style="text-align: center;"}
+![](/assets/images/mdc/tutorials/multi-dataflow.svg)
+{: refdef}
