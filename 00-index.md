@@ -19,4 +19,4 @@ permalink: /tools/mdc
 
 ## Contact
 
-If you are interested in the MDC Tool or if you want to request further information, do not hesitate to [contact us](mailto:fpalumbo@uniss.it, carlo.sau@unica.it, tfanni@uniss.it, crubattu@uniss.it).  Technical issues should be handled via [GitHub Issues](https://github.com/mdc-suite/mdc/issues).
+If you are interested in the MDC Tool or if you want to request further information, do not hesitate to [contact us](mailto:fpalumbo@uniss.it, carlo.sau@unica.it, dmadronalquin@uniss.it, rlazcanolopez@uniss.it).  Technical issues should be handled via [GitHub Issues](https://github.com/mdc-suite/mdc/issues).

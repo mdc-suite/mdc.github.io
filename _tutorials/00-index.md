@@ -1,12 +1,8 @@
 ---
 title: "MDC Tutorials"
-permalink: /tools/mdc/tutorials
+permalink: /tutorials
 
 toc: true
-toc_label: "Index"
-toc_min_header: 2
-toc_max_header: 2
-toc_sticky: true
 ---
 
 ## [Installation guide](/tools/mdc/tutorials/setup)
