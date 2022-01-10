@@ -1,28 +1,41 @@
 main:
   - title: "MDC"
-    url: /tools/mdc
+    url: /mdc/baseline
+  - title: "Tutorials"
+    url: /tutorials
+  - title: "Publications"
+    url: /publications
+  - title: "Get MDC"
+    url: /get
+  - title: "MISCELANEOUS"
+    url: /miscelaneous/yoctofpga
 
 mdc:
   - title: "MDC"
-    url: /tools/mdc
-  - title: "Documentation"
+    url: /mdc/baseline
     children:
       - title: "Baseline MDC Core"
-        url: /tools/mdc/docs/baseline
+        url: /mdc/baseline
       - title: "Structural Profiler"
-        url: /tools/mdc/docs/profiler
+        url: /mdc/profiler
       - title: "Power Manager"
-        url: /tools/mdc/docs/powermanager
+        url: /mdc/powermanager
       - title: "Coprocessor Generator"
-        url: /tools/mdc/docs/coprocessorgenerator
+        url: /mdc/coprocessorgenerator
+tutorials:
   - title: "Tutorials"
-    url: /tools/mdc/tutorials
+    url: /tutorials
     children:
       - title: "01 - Installation"
-        url: /tools/mdc/tutorials/setup
+        url: /tutorials/setup
       - title: "02 - Merging Process"
-        url: /tools/mdc/tutorials/mergingprocess
+        url: /tutorials/mergingprocess
+publications:
   - title: "Publications"
-    url: /tools/mdc/publications
+    url: /publications
+get:
   - title: "Get MDC"
-    url: /tools/mdc/get
+    url: /get
+miscelaneous:
+  - title: "Miscelaneous"
+    url: /miscelaneous/yoctofpga
