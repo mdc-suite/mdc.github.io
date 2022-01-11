@@ -297,6 +297,9 @@ collections:
   miscelaneous:
     output: true
     permalink: /:collection/:path/
+  about:
+    output: true
+    permalink: /:collection/:path/
 
 
 # Defaults
@@ -352,4 +355,12 @@ defaults:
       layout: single
       sidebar:
         nav: "miscelaneous"
+  # _about
+  - scope:
+      path: ""
+      type: about
+    values:
+      layout: single
+      sidebar:
+        nav: "about"
 

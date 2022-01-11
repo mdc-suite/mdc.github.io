@@ -9,16 +9,18 @@ toc: true
 
 Please, use the following reference if you use MDC in your scientific paper or if you want to cite it:
 
-**Palumbo, F., Fanni, T., Sau, C. et al. Power-Awarness in Coarse-Grained Reconfigurable Multi-Functional Architectures: a Dataflow Based Strategy. J Sign Process Syst 87, 81–106 (2017). https://doi.org/10.1007/s11265-016-1106-9**
+**Sau, C., Fanni, T., Rubattu, C., Raffo, L., & Palumbo, F. (2021). The Multi-Dataflow Composer tool: An open-source tool suite for optimized coarse-grain reconfigurable hardware accelerators and platform design. Microprocessors and Microsystems, 80, 103326.**
 
 ```
-@article{Palumbo_2016,
-	title={Power-Awarness in Coarse-Grained Reconfigurable Multi-Functional Architectures: a Dataflow Based Strategy},
-	author={Palumbo, F. and Fanni, T. and Sau, C. and Meloni, P.},
-	journal={Journal of Signal Processing Systems},
-	pages={1--26},
-	year={2016},
-	publisher={Springer US}
+@article{sau2021multi,
+  title={The Multi-Dataflow Composer tool: An open-source tool suite for optimized coarse-grain reconfigurable hardware accelerators and platform design},
+  author={Sau, Carlo and Fanni, Tiziana and Rubattu, Claudio and Raffo, Luigi and Palumbo, Francesca},
+  journal={Microprocessors and Microsystems},
+  volume={80},
+  pages={103326},
+  year={2021},
+  publisher={Elsevier}
+}
 ```
 
 
