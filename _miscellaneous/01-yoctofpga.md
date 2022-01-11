@@ -1,6 +1,6 @@
 ---
 title: "Yocto OS on ZCU-102"
-permalink: /miscelaneous/yoctofpga
+permalink: /miscellaneous/yoctofpga
 
 toc: true
 ---

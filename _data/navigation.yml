@@ -7,8 +7,8 @@ main:
     url: /publications
   - title: "Get MDC"
     url: /get
-  - title: "Miscelaneous"
-    url: /miscelaneous/yoctofpga
+  - title: "Miscellaneous"
+    url: /miscellaneous/yoctofpga
   - title: "About Us"
     url: /about
 
@@ -39,8 +39,8 @@ get:
   - title: "Get MDC"
     url: /get
 miscelaneous:
-  - title: "Miscelaneous"
-    url: /miscelaneous/yoctofpga
+  - title: "Miscellaneous"
+    url: /miscellaneous/yoctofpga
 about:
   - title: "About Us"
     url: /about

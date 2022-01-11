@@ -294,7 +294,7 @@ collections:
   get:
     output: true
     permalink: /:collection/:path/
-  miscelaneous:
+  miscellaneous:
     output: true
     permalink: /:collection/:path/
   about:
@@ -347,14 +347,14 @@ defaults:
       layout: single
       sidebar:
         nav: "get"
-  # _miscelaneous
+  # _miscellaneous
   - scope:
       path: ""
-      type: miscelaneous
+      type: miscellaneous
     values:
       layout: single
       sidebar:
-        nav: "miscelaneous"
+        nav: "miscellaneous"
   # _about
   - scope:
       path: ""
