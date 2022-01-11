@@ -21,4 +21,4 @@ toc: true
 
 ## Source Code
 
-The source code of MDC is available on [GitHub](https://github.com/mdc-suite/mdc){:target="_blank"}.  Please check the [First Steps](/tools/mdc/tutorials/setup) required to install and set up MDC.
+The source code of MDC is available on [GitHub](https://github.com/mdc-suite/mdc){:target="_blank"}.  Please check the [First Steps](/tutorials/setup) required to install and set up MDC.

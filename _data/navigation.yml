@@ -14,7 +14,7 @@ main:
 
 mdc:
   - title: "MDC"
-    url: /mdc/baseline
+    url: /mdc
     children:
       - title: "Baseline MDC Core"
         url: /mdc/baseline
