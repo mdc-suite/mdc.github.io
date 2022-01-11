@@ -38,7 +38,7 @@ publications:
 get:
   - title: "Get MDC"
     url: /get
-miscelaneous:
+miscellaneous:
   - title: "Miscellaneous"
     url: /miscellaneous/yoctofpga
 about:
