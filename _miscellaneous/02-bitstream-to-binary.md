@@ -2,7 +2,6 @@
 title: "Convert bitstream to binary for fpgautil"
 permalink: /miscellaneous/bitstream-to-binary
 
-toc: true
 ---
 
 If you want to load a bitstream at runtime from your OS, using `fpgautil`, you need to convert it into a binary version.
@@ -33,10 +32,10 @@ all:
 ```
 The execute `bootgen`:
 ```bash
-# Generate a binary file from bitstream (arch-family = zynqmp for zynqmp family as zcu102)
-$ bootgen -image <bif-file>.bif -arch <arch-family> -o <bitname>.bit.bin
+# Generate a binary file from bitstream (<arch-family> = zynqmp for zynqmp family as zcu102)
+$ bootgen -image <bif-file>.bif -arch <arch-family> -o <bitname>.bit.bin -w on
 ```
 
 Now `<bitname>.bit.bin` is available into the work directory, it can be copied into the SD card and loaded through `fpgautil`.
 
-**Immagine degli step effettuati**
+![Bootgen led controller](pictures/bootgen-led-controller.png)

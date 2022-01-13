@@ -4,24 +4,21 @@ permalink: /miscellaneous/yoctofpga
 
 toc: true
 ---
+This tutorial is a step-by-step guide to create a custom Yocto-linux distribution for the **Xilinx UltraScale+ ZCU102**. The tutorial has been tested ONLY on the ZCU102, but it should be working for the other Xilinx heterogeneous boards, with CPU and FPGA.
 
-This tutorial is a step-by-step guide to create a custom Yocto-linux distribution for the **Xilinx UltraScale+ ZCU102**. The tutorial should be working for the others Xilinx heterogeneous boards, with CPU and FPGA.
+If you encounter errors not present in the **[Troubleshooting](#troubleshooting)** section of this page, please open an [issue](https://github.com/mdc-suite/mdc-suite.github.io/issues) on GitHub, or send me an e-mail:
 
-Page index:
-- [System Requirements](#system-requirements)
-- [Build OS instructions](#build-os-instructions)
-- [Boot from SD card](#boot-from-sd-card)
-- [FPGA programming](#fpga-programming)
-- [Possible errors](#possible-errors)
+    Raffaele Meloni - raffaele.meloni99@gmail.com
+
 
 ## System Requirements
 Please, before starting, make sure you meet the following requirements:
-1. A host machine with a Yocto supported [Linux distribution](https://docs.yoctoproject.org/3.4/ref-manual/system-requirements.html#supported-linux-distributions). I've used Ubuntu 20.04 LTS on Asus Rog Zephyrus G14 2021;
-2. At least 40-50GB free space disk on your host machine;
-3. Stable Internet connection to fetch repositories and download files. *Fast connection is recommended because many errors can be encoutered because of a bad connection*;
+1. A host machine with a Yocto supported [Linux distribution](https://docs.yoctoproject.org/3.4/ref-manual/system-requirements.html#supported-linux-distributions). I've used Ubuntu 20.04 LTS on Asus Rog Zephyrus G14 2021.
+2. At least 65GB free space disk on your host machine (this free space is required by the building system).
+3. Stable Internet connection to fetch repositories and download files. Fast connection is recommended because many errors can be encoutered because of a bad connection.
 4. All [required packages](https://docs.yoctoproject.org/3.4/ref-manual/system-requirements.html#required-packages-for-the-build-host) installed.
 
-Yocto documentation (3.4): <https://docs.yoctoproject.org/3.4/index.html>
+[Yocto documentation (3.4)](https://docs.yoctoproject.org/3.4/index.html)
 
 
 
@@ -34,21 +31,22 @@ Create a working directory (e.g ~/bin/ or another), cd into it and install the `
 ```bash
 $ curl https://storage.googleapis.com/git-repo-downloads/repo > repo
 $ chmod a+x repo
+# test repo
 $ repo --help
 ```
 
-Download and fetch the manifest for required layers. Replace `<release>` with a [supported release](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841883/Yocto), `rel-v2021.1` if you have installed Ubuntu 20.04 LTS:
+Download and fetch the manifest for required layers. Replace `<release>` with a [supported release](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841883/Yocto), e.g. `rel-v2021.1` if you have installed Ubuntu 20.04 LTS:
 ```bash
 $ repo init -u git://github.com/Xilinx/yocto-manifests.git -b <release>
 $ repo sync 
 # Checkout the corresponding release for each repository. If you don't it, all repositories will not have the correct release branch
 $ repo start <release> --all
 ```
-*Repo uses a manifest which is an XML file that describes all the required repositories.  It can manage all of your git repositories so they remain in sync.*
+Repo uses a manifest which is an XML file that describes all the required repositories.  It can manage all of your git repositories so they remain in sync.
 
 Now layers are available on your working directory
 
-![Yocto layers](pictures/install-repo_repo-sync-2.png)
+![Yocto layers](pictures/download-layers.png)
 
 ### Configure Yocto
 Launch the Yocto Environment:
@@ -80,14 +78,19 @@ Once Yocto is configured you can build the OS image running:
 ```bash
 $ bitbake petalinux-image-minimal
 ```
-At the end of the process, image files are available at `./build/tmp/deploy/images/zcu102-zynqmp/`.
-If you included `fpga-manager` in your image, go to **[FPGA programming](#fpga-programming)** to see how to use it.
+At the end of the process, image files are available at `./build/tmp/deploy/images/<target-machine>/`.
+If you have included `fpga-manager` in your image, you can go to **[FPGA programming](#fpga-programming)** to see how to use it.
 
+<details>
+<summary>Click to see deploy directory content</summary>
 
+<img src="pictures/deploy-dir.png" alt="Deploy directory content">
+
+</details>
 
 ## Boot from SD card
-Prepare an SD card creating two partitions:
-- The **first** one as a **bootable** partition (100MB FAT16)
+Prepare an SD card creating two partitions, see this [tutorial](https://subscription.packtpub.com/book/hardware-and-creative/9781785289736/1/ch01lvl1sec12/creating%20partitions%20and%20formatting%20the%20sd%20card):
+- The **first** one as a **bootable** partition (100MB, FAT16)
 - The **second** one for the **rootfs** (EXT4)
 
 Copy boot files in the **first** partition:
@@ -101,20 +104,43 @@ $ cp zcu102-zynqmp-system.dtb <path-first-partition>/system.dtb
 
 Extract rootfs tarball into the **second** partition.
 ```bash
-$ tar xf petalinux-image-minimal-zcu102-zynqmp.tar.gz -C <path-sd-second-partition>
+$ sudo tar xf petalinux-image-minimal-zcu102-zynqmp.tar.gz -C <path-sd-second-partition>
 ```
-Then use a terminal emulation program (e.g. Putty), executed with privileges (sudo), to connect the board through the serial port. To do so, first the name of the serial port should be checked using `dmesg`.
+![SD partition content](pictures/sd-partitions.png)
 
-**Aggiungere immagine**
+Then connect the board (UART) to your laptop and check the serial port using `dmesg`.
+```bash
+$ dmseg | grep tty
+# USB is usually connected to ttyUSB*
+```
 
-| UART Configuration|
-| --- | --- |
+Open a terminal emulation program (e.g. Putty), executed with privileges (`sudo`),
+
+
+|  UART | Configuration |
+| --------- | ------ |
 | Baud rate | 115200 |
-| Data bits | 8 |
-| Stop bits | 1 |
-| Parity | None |
+| Data bits | 8      |
+| Stop bits | 1      |
+| Parity    | None   |
  
-Once the board is turned on, a Linux shell will be prompted.
+Finally set the switches (sw6) in boot SD mode (ON, OFF, OFF, OFF) and turn on the board.
+
+<details>
+<summary>Click to see the switches configuration</summary>
+
+
+<img src="pictures/sw6-sd-boot-mode.jpg" alt="sw6 boot sd mode"  width="70%">
+
+</details>
+<details>
+<summary>Click to see Linux shell for ZCU102</summary>
+
+<img src="pictures/linux-shell-zcu102.png" alt="linux terminal zcu102" >
+<img src="pictures/linux-shell-zcu102-2.png" alt="linux terminal zcu102">
+
+</details>
+
 
 
 ## FPGA programming
@@ -128,12 +154,12 @@ Usage:  fpgautil -b <bin file path> -o <dtbo file path>
  
 Options: -b <binfile>           (Bin file path)
          -o <dtbofile>          (DTBO file path)
-         -f <flags>             Optional: <Bitstream type flags>
-                                   f := <Full | Partial >
-                                Defaults: <Full>
-          -s <secure flags>     Optional: <Secure flags>
-                                   s := <AuthDDR | AuthOCM | EnUsrKey | EnDevKey | AuthEnUsrKeyDDR | AuthEnUsrK>
-          -k <AesKey>           Optional: <AES User Key>
+         -f <flags>             Optional:
+
+# Useful links
+<https://docs.yoctoproject.org/3.4/index.html>
+
+<https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841862/Install+and+Build+with+Xilinx+Yocto> <AES User Key>
           -r <Readback>         Optional: <file name>
                                 Default: By default Read back contents will be stored in readback.bin file
           -t                    Optional: <Readback Type>
@@ -147,19 +173,12 @@ Example:
 fpgautil -b top.bit.bin
 ```
 
-See documentation at <https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841847/Solution+ZynqMP+PL+Programming>.
-
-### Example of usage
-In this example, which shows how `fpgautil` runs, a hardware block created by Vivado ML Enterprise edition, is used.
-
-**Inserire GIF/Video di scheda più terminale**
-
-## Possible errors
-Following this tutorial you can encounter errors due to host packages. If you encounter an error which isn't in this section, please, 
-I encountered and solved the following errors:
+## Troubleshooting
+Following this tutorial you can encounter errors due to host packages.
+This is a list of solved errors:
 
 1. **package require hsi FAILED**
-    ```
+```
 ERROR: pmu-firmware-git+gitAUTOINC+d37a0e8824-r0 do_configure: Execution of '/home/raffaele/bin/build/tmp/work/zcu102_zynqmp-xilinx-linux/pmu-firmware/git+gitAUTOINC+d37a0e8824-r0/temp/run.do_configure.1520032' failed with exit code 1:
 MISC_ARG is  -yamlconf /home/raffaele/bin/build/tmp/work/zcu102_zynqmp-xilinx-linux/pmu-firmware/git+gitAUTOINC+d37a0e8824-r0/pmu-firmware.yaml
 APP_ARG is  -app "ZynqMP PMU Firmware"
@@ -183,19 +202,55 @@ invalid command name "hsi::create_dt_node"
     ("package ifneeded hsi::help 0.1" script)WARNING: exit code 1 from a shell command.
 ......
 ......
+```
+
+    **Solution:** install `libtinfo5`. 
+    
+    **Related issue:** [https://github.com/Xilinx/meta-xilinx-tools/issues/19](https://github.com/Xilinx/meta-xilinx-tools/issues/19).
+
+2. **configure: error: raw selected, but required raw.h header file not available**
+```
+    ERROR: util-linux-native-2.36-r0 do_configure: configure failed
+    ERROR: util-linux-native-2.36-r0 do_configure: Execution of '/home/raffaele/zcu102-os-tutorial/build/tmp/work/x86_64-linux/util-linux-native/2.36-r0/temp/run.do_configure.350741' failed with exit code 1:
+    automake (GNU automake) 1.16.2
+    Copyright (C) 2020 Free Software Foundation, Inc.
+    License GPLv2+: GNU GPL version 2 or later <https://gnu.org/licenses/gpl-2.0.html>
+    This is free software: you are free to change and redistribute it.
+    There is NO WARRANTY, to the extent permitted by law.
+
+    Written by Tom Tromey <tromey@redhat.com> 
+        and Alexandre Duret-Lutz <adl@gnu.thisorg>.
+    AUTOV is 1.16
+    autoreconf: Entering directory .
+    ......
+    ......
+    ......
+    | checking for syscall prlimit64... SYS_prlimit64
+    | checking for prlimit... yes
+    | checking for syscall pivot_root... SYS_pivot_root
+    | configure: error: raw selected, but required raw.h header file not available
+    | WARNING: exit code 1 from a shell command.
+    | 
+    ERROR: Task (virtual:native:/home/raffaele/zcu102-os-tutorial/sources/core/meta/recipes-core/util-linux/util-linux_2.36.bb:do_configure) failed with exit code '1'
+    NOTE: Tasks Summary: Attempted 1010 tasks of which 0 didn't need to be rerun and 1 failed.
+    NOTE: Writing buildhistory
+    NOTE: Writing buildhistory took: 4 seconds
+
+    Summary: 1 task failed:
+    virtual:native:/home/raffaele/zcu102-os-tutorial/sources/core/meta/recipes-core/util-linux/util-linux_2.36.bb:do_configure
+    Summary: There were 4 WARNING messages shown.
+    Summary: There were 2 ERROR messages shown, returning a non-zero exit code.
+```
+    In recent linux kernel raw.h file was removed.
+    
+    **Solution:** append this line in your `conf/local.conf` (<font color="green">preferred</font>)
+    ```bash 
+    # Fix configure: error: raw selected, but required raw.h header file not available for new host kernels
+    EXTRA_OECONF_remove = "--enable-raw"
     ```
-    **Solution:** install `libtinfo5`. Related issue [https://github.com/Xilinx/meta-xilinx-tools/issues/19](https://github.com/Xilinx/meta-xilinx-tools/issues/19).
+    or remove directly `--enable-row` from EXTRA_OECONF in `./sources/core/meta/recipes-core/util-linux/util-linux_2.36.bb`. 
+    
+    **Related issue:** [fix enable raw](https://lists.yoctoproject.org/g/yocto/topic/util_linux_and_enable_raw/86266370?p=,,,20,0,0,0::recentpostdate/sticky,,,20,2,0,86266370,previd=1634094655266752289,nextid=1633973089717825518&previd=1634094655266752289&nextid=1633973089717825518).
 
-2. **raw.h**
+*This list will be updated over time.*
 
-*This list of possible errors will be updated over time.*
-
-
-# Mantainers
-
-    Raffaele Meloni - rameloni1@gmail.com
-
-# Useful links
-<https://docs.yoctoproject.org/3.4/index.html>
-
-<https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841862/Install+and+Build+with+Xilinx+Yocto>
