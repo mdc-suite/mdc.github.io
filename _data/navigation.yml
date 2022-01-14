@@ -45,8 +45,6 @@ miscellaneous:
         url: /miscellaneous/yoctofpga
       - title: "Convert bitstream to binary for fpgautil"
         url: /miscellaneous/bitstream-to-binary
-      - title: "Download prebuilt image for ZCU102"
-        url: /miscellaneous/iso-zcu102
 about:
   - title: "About Us"
     url: /about
