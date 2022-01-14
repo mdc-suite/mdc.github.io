@@ -1,0 +1,41 @@
+LCONF_VERSION = "7"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+    <path>/sources/core/meta \
+    <path>/sources/core/meta-poky \
+    <path>/sources/core/../meta-openembedded/meta-perl \
+    <path>/sources/core/../meta-openembedded/meta-python \
+    <path>/sources/core/../meta-openembedded/meta-filesystems \
+    <path>/sources/core/../meta-openembedded/meta-gnome \
+    <path>/sources/core/../meta-openembedded/meta-multimedia \
+    <path>/sources/core/../meta-openembedded/meta-networking \
+    <path>/sources/core/../meta-openembedded/meta-webserver \
+    <path>/sources/core/../meta-openembedded/meta-xfce \
+    <path>/sources/core/../meta-openembedded/meta-initramfs \
+    <path>/sources/core/../meta-openembedded/meta-oe \
+    <path>/sources/core/../meta-clang \
+    <path>/sources/core/../meta-browser/meta-chromium \
+    <path>/sources/core/../meta-qt5 \
+    <path>/sources/core/../meta-xilinx/meta-microblaze \
+    <path>/sources/core/../meta-xilinx/meta-xilinx-bsp \
+    <path>/sources/core/../meta-xilinx/meta-xilinx-pynq \
+    <path>/sources/core/../meta-xilinx/meta-xilinx-contrib \
+    <path>/sources/core/../meta-xilinx/meta-xilinx-standalone \
+    <path>/sources/core/../meta-xilinx-tools \
+    <path>/sources/core/../meta-petalinux \
+    <path>/sources/core/../meta-virtualization \
+    <path>/sources/core/../meta-openamp \
+    <path>/sources/core/../meta-jupyter \
+    <path>/sources/core/../meta-vitis-ai \
+    <path>/sources/core/../meta-python2 \
+    <path>/sources/core/../meta-som \
+    <path>/sources/core/../meta-security \
+    <path>/sources/core/../meta-security/meta-tpm \
+"
+
+BBLAYERS_NON_REMOVABLE ?= " \
+    <path>/sources/core/meta \
+"

@@ -40,7 +40,11 @@ get:
     url: /get
 miscellaneous:
   - title: "Miscellaneous"
-    url: /miscellaneous/yoctofpga
+    children:
+      - title: "Yocto OS on UltraScale+ ZCU102"
+        url: /miscellaneous/yoctofpga
+      - title: "Convert bitstream to binary for fpgautil"
+        url: /miscellaneous/bitstream-to-binary
 about:
   - title: "About Us"
     url: /about
