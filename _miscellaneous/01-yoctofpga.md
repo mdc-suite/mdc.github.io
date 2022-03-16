@@ -78,6 +78,11 @@ If you want to use the FPGA at runtime from your OS, add this line to `local.con
 ```bash
 EXTRA_IMAGE_FEATURES += "fpga-manager"
 ```
+### SDK tools (optional)
+If you want to use the Software Development Tools (gcc, make, pkgconfig etc.), edit this line within `local.conf`:
+```bash
+EXTRA_IMAGE_FEATURES += "debug-tweaks tools-sdk"
+```
 
 ### Launch bitbake
 Once Yocto is configured you can build the OS image running:
