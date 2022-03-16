@@ -8,7 +8,7 @@ This tutorial is a step-by-step guide to create a custom Yocto-linux distributio
 
 The result of this tutorial can be downloaded here: <a href="downloads/linux-yocto-zcu102_rel-v2021.1.tar.gz" class="btn btn--info" style="display: inline-block;">Download Yocto ZCU102</a>
 
-**Last update the 14/01/2022 - Tutorial created by R. Meloni**
+**Last update the 16/03/2022 - Tutorial created by R. Meloni**
 
 ## Contact us
 If you encounter errors not present in the **[Troubleshooting](#troubleshooting)** section of this page, please open an [issue](https://github.com/mdc-suite/mdc-suite.github.io/issues) on GitHub, or an e-mail to:
