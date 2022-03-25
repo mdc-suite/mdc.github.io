@@ -1,17 +1,18 @@
 ---
 title: "Yocto OS on UltraScale+ ZCU102"
 permalink: /miscellaneous/yoctofpga
-
+author_profile: true
+author: Raffaele Meloni
 toc: true
 ---
 This tutorial is a step-by-step guide to create a custom Yocto-linux distribution for the **Xilinx UltraScale+ ZCU102**. The tutorial has been tested ONLY on the ZCU102, but it should be working for the other Xilinx heterogeneous boards, with CPU and FPGA.
 
 The result of this tutorial can be downloaded here: <a href="downloads/linux-yocto-zcu102_rel-v2021.1.tar.gz" class="btn btn--info" style="display: inline-block;">Download Yocto ZCU102</a>
 
-**Last update the 16/03/2022 - Tutorial created by R. Meloni**
+**Last update the 16/03/2022** - Tutorial created by R. Meloni the 13/01/2022
 
 ## Contact us
-If you encounter errors not present in the **[Troubleshooting](#troubleshooting)** section of this page, please open an [issue](https://github.com/mdc-suite/mdc-suite.github.io/issues) on GitHub, or an e-mail to:
+If you encounter errors not present in the **[Troubleshooting](#troubleshooting)** section of this page, please open an <a href="https://github.com/mdc-suite/mdc-suite.github.io/issues" target="_blank">issue</a> on GitHub, or send an e-mail to:
 
     Raffaele Meloni - raffaele.meloni99@gmail.com
     Daniel Madroñal - dmadronalquin@uniss.it
@@ -155,7 +156,7 @@ Finally set the switches (sw6) in boot SD mode (ON, OFF, OFF, OFF) and turn on t
 
 
 ## FPGA programming
-If you add **[FPGA support](#fpga-support-optional)** the tool `fpgautil` is available on your system. It allows you to load a binary version of a bitstream at runtime, see **[Convert bitstream to binary](bitstream-to-binary)**.
+If you add **[FPGA support](#fpga-support-optional)** the tool `fpgautil` is available on your system. It allows you to load a binary* version of a bitstream at runtime.
 ```
 root@zcu102-zynqmp:~# fpgautil -h
  
@@ -183,6 +184,7 @@ Example:
 (Load Bitstream)
 fpgautil -b top.bit.bin
 ```
+<div class="note">*vivado provides an option to generate the .bin version of the bitstream </div>
 
 ## Troubleshooting
 Following this tutorial you can encounter errors due to host packages.
