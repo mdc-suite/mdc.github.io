@@ -1,0 +1,16 @@
+# /_data/authors.yml
+
+Raffaele Meloni:
+  name        : "Raffaele Meloni"
+  #bio         : "What do you want, jewels? I am a very extravagant man."
+  avatar      : "/assets/images/rmeloni.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:raffaele.meloni@gmail.com"
+    - label: "Github"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/rameloni"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/raffaele-meloni-886a1a208/"

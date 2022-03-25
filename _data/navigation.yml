@@ -45,6 +45,8 @@ miscellaneous:
         url: /miscellaneous/yoctofpga
       - title: "Convert bitstream to binary for fpgautil"
         url: /miscellaneous/bitstream-to-binary
+      - title: "PS-PL communication management"
+        url: /miscellaneous/ps-pl-communication
 about:
   - title: "About Us"
     url: /about
