@@ -43,10 +43,12 @@ miscellaneous:
     children:
       - title: "Yocto OS on UltraScale+ ZCU102"
         url: /miscellaneous/yoctofpga
-      - title: "Convert bitstream to binary for fpgautil"
+      - title: "Convert bitstream to binary"
         url: /miscellaneous/bitstream-to-binary
       - title: "PS-PL communication management"
         url: /miscellaneous/ps-pl-communication
+      - title: "Zynq USB Device Drivers"
+        url: /miscellaneous/usb-device-driver
 about:
   - title: "About Us"
     url: /about

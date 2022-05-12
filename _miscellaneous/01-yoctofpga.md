@@ -5,14 +5,14 @@ author_profile: true
 author: Raffaele Meloni
 toc: true
 ---
-This tutorial is a step-by-step guide to create a custom Yocto-linux distribution for the **Xilinx UltraScale+ ZCU102**. The tutorial has been tested ONLY on the ZCU102, but it should be working for the other Xilinx heterogeneous boards, with CPU and FPGA.
+This tutorial is a step-by-step guide which shows how to create a custom Yocto-linux distribution for the <a href="https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-g.html" target="_blank">**Xilinx UltraScale+ ZCU102**</a>. The passages have been tested ONLY on the ZCU102, but they should be working also for other Xilinx heterogeneous boards, with CPU and FPGA.
 
-The result of this tutorial can be downloaded here: <a href="downloads/linux-yocto-zcu102_rel-v2021.1.tar.gz" class="btn btn--info" style="display: inline-block;">Download Yocto ZCU102</a>
+A basic bootable image can be downloaded here: <a href="downloads/linux-yocto-zcu102_rel-v2021.1.tar.gz" class="btn btn--info" style="display: inline-block;">Download Yocto ZCU102</a>
 
-**Last update the 16/03/2022** - Tutorial created by R. Meloni the 13/01/2022
+**Last update the 11/05/2022** - Tutorial created by R. Meloni the 13/01/2022
 
 ## Contact us
-If you encounter errors not present in the **[Troubleshooting](#troubleshooting)** section of this page, please open an <a href="https://github.com/mdc-suite/mdc-suite.github.io/issues" target="_blank">issue</a> on GitHub, or send an e-mail to:
+If you encounter any errors which are not in the **[Troubleshooting](#troubleshooting)** section of this page, please open an <a href="https://github.com/mdc-suite/mdc-suite.github.io/issues" target="_blank">issue</a> on GitHub, or send an e-mail to:
 
     Raffaele Meloni - raffaele.meloni99@gmail.com
     Daniel Madroñal - dmadronalquin@uniss.it
@@ -20,38 +20,39 @@ If you encounter errors not present in the **[Troubleshooting](#troubleshooting)
 
 ## System Requirements
 Please, before starting, make sure you meet the following requirements:
-1. A host machine with a Yocto supported [Linux distribution](https://docs.yoctoproject.org/3.4/ref-manual/system-requirements.html#supported-linux-distributions). I've used Ubuntu 20.04 LTS on Asus Rog Zephyrus G14 2021.
-2. At least 65GB free space disk on your host machine (this free space is required by the building system).
-3. Stable Internet connection to fetch repositories and download files. Fast connection is recommended because many errors can be encoutered because of a bad connection.
-4. All [required packages](https://docs.yoctoproject.org/3.4/ref-manual/system-requirements.html#required-packages-for-the-build-host) installed.
+1. A host machine with a Yocto supported <a href="https://docs.yoctoproject.org/3.4/ref-manual/system-requirements.html#supported-linux-distributions" target="_blank">Linux distribution</a>. I've used Ubuntu 20.04 LTS on Asus Rog Zephyrus G14 2021.
+2. At least 65GB free space disk on your host machine (the building system requires this free space).
+3. A stable Internet connection to fetch repositories and download files. Fast connection is recommended because many errors can be encoutered because of a bad connection.
+4. All <a href="https://docs.yoctoproject.org/3.4/ref-manual/system-requirements.html#required-packages-for-the-build-host" target="_blank">required packages</a> installed on the host machine.
 
-[Yocto documentation (3.4)](https://docs.yoctoproject.org/3.4/index.html)
+Further details at <a href="https://docs.yoctoproject.org/3.4/index.html" target="_blank">Yocto documentation (3.4)</a>
 
 
 
 
 ## Build OS instructions
-The following instructions are necessary to port Linux Yocto on the ZCU102.
+The following steps are needed to port Linux Yocto on the ZCU102.
 
 ### Download layers
 Create a working directory (e.g ~/bin/ or another), cd into it and install the `repo` script:
 ```bash
+# from your working directory
 $ curl https://storage.googleapis.com/git-repo-downloads/repo > repo
 $ chmod a+x repo
 # test repo
 $ repo --help
 ```
 
-Download and fetch the manifest for required layers. Replace `<release>` with a [supported release](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841883/Yocto), e.g. `rel-v2021.1` if you have installed Ubuntu 20.04 LTS:
+Download and fetch the manifest for required layers. Replace `<release>` with a <a href="https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841883/Yocto" target="_blank">supported release</a>, e.g. `rel-v2021.1` if you have installed Ubuntu 20.04 LTS on the host machine:
 ```bash
 $ repo init -u git://github.com/Xilinx/yocto-manifests.git -b <release>
 $ repo sync 
 # Checkout the corresponding release for each repository. If you don't it, all repositories will not have the correct release branch
 $ repo start <release> --all
 ```
-Repo uses a manifest which is an XML file that describes all the required repositories.  It can manage all of your git repositories so they remain in sync.
+Repo uses a manifest: an XML file that describes all the required repositories.  It can manage all of your git repositories, so they are synced every time.
 
-Now layers are available on your working directory
+Now layers are available on the working directory.
 
 ![Yocto layers](pictures/download-layers.png)
 
@@ -62,9 +63,7 @@ Launch the Yocto Environment:
 $ source setupsdk
 ```
 
-Configure `bblayers.conf` like [bblayers.conf.template](bblayers.conf.template).
-
-Edit `local.conf`:
+Configure `bblayers.conf` like [bblayers.conf.template](bblayers.conf.template) and edit `local.conf`:
 ```bash
 # Select the correct target machine
 MACHINE ?= "zcu102-zynqmp"
@@ -74,24 +73,14 @@ EXTRA_IMAGEDEPENDS_append = "u-boot-zynq-scr"
 ```
 
 
-### FPGA support (optional)
-If you want to use the FPGA at runtime from your OS, add this line to `local.conf`:
-```bash
-EXTRA_IMAGE_FEATURES += "fpga-manager"
-```
-### SDK tools (optional)
-If you want to use the Software Development Tools (gcc, make, pkgconfig etc.), edit this line within `local.conf`:
-```bash
-EXTRA_IMAGE_FEATURES += "debug-tweaks tools-sdk"
-```
+
 
 ### Launch bitbake
-Once Yocto is configured you can build the OS image running:
+Once Yocto is configured, you can build the OS image running:
 ```bash
 $ bitbake petalinux-image-minimal
 ```
-At the end of the process, image files are available at `./build/tmp/deploy/images/<target-machine>/`.
-If you have included `fpga-manager` in your image, you can go to **[FPGA programming](#fpga-programming)** to see how to use it.
+At the end of the process, image files are available at `./build/tmp/deploy/images/<target-machine>/` and they can be copied on an [SD card](#boot-from-sd-card).
 
 <details>
 <summary>Click to see deploy directory content</summary>
@@ -100,8 +89,28 @@ If you have included `fpga-manager` in your image, you can go to **[FPGA program
 
 </details>
 
+
+## Additional functionalities
+This section provides steps in order to extend the functionalities of the OS, such as allowing the FPGA runtime reconfiguration, adding the software development kit and USB 3.0 support. 
+### FPGA runtime reconfiguration support
+In order to use the FPGA at runtime from your OS, add this line to `local.conf`:
+```bash
+EXTRA_IMAGE_FEATURES += "fpga-manager"
+```
+Please take a look at **[FPGA programming](#fpga-programming)** options.
+
+### SDK tools
+In order to use the Software Development Tools (gcc, make, pkgconfig etc.), edit the `EXTRA_IMAGE_FEATURES` variable within `local.conf`:
+```bash
+EXTRA_IMAGE_FEATURES += "debug-tweaks tools-sdk"
+```
+
+### USB support
+In order to use the USB port available on the UltraScale, more steps than previous two features are needed. If you want this functionality in your OS, please see the instrucions at this page [Zynq USB Device Drivers](usb-device-driver).
+
+
 ## Boot from SD card
-Prepare an SD card creating two partitions, see this [tutorial](https://subscription.packtpub.com/book/hardware-and-creative/9781785289736/1/ch01lvl1sec12/creating%20partitions%20and%20formatting%20the%20sd%20card):
+Prepare an SD card creating two partitions, see this <a href="https://subscription.packtpub.com/book/hardware-and-creative/9781785289736/1/ch01lvl1sec12/creating%20partitions%20and%20formatting%20the%20sd%20card" target="_blank">tutorial</a>:
 - The **first** one as a **bootable** partition (100MB, FAT16)
 - The **second** one for the **rootfs** (EXT4)
 
@@ -114,7 +123,7 @@ $ cp boot.scr boot.bin Image <path-first-partition>
 $ cp zcu102-zynqmp-system.dtb <path-first-partition>/system.dtb
 ```
 
-Extract rootfs tarball into the **second** partition.
+Extract rootfs tarball into the **second** partition:
 ```bash
 $ sudo tar xf petalinux-image-minimal-zcu102-zynqmp.tar.gz -C <path-sd-second-partition>
 ```
@@ -126,15 +135,15 @@ $ dmseg | grep tty
 # USB is usually connected to ttyUSB*
 ```
 
-Open a terminal emulation program (e.g. Putty), executed with privileges (`sudo`),
+Open a terminal emulation program (e.g. Putty), executed with privileges (`sudo`).
 
 
-|  UART | Configuration |
-| --------- | ------ |
-| Baud rate | 115200 |
-| Data bits | 8      |
-| Stop bits | 1      |
-| Parity    | None   |
+|  UART     | Configuration |
+| --------- | ------------: |
+| Baud rate | 115200        |
+| Data bits | 8             |
+| Stop bits | 1             |
+| Parity    | None          |
  
 Finally set the switches (sw6) in boot SD mode (ON, OFF, OFF, OFF) and turn on the board.
 
@@ -156,7 +165,7 @@ Finally set the switches (sw6) in boot SD mode (ON, OFF, OFF, OFF) and turn on t
 
 
 ## FPGA programming
-If you add **[FPGA support](#fpga-support-optional)** the tool `fpgautil` is available on your system. It allows you to load a binary* version of a bitstream at runtime.
+If you have added the [FPGA support](#fpga-runtime-reconfiguration-support), the **fpgautil** tool will be available on your system. It allows you to load a binary* version of a bitstream at runtime.
 ```
 root@zcu102-zynqmp:~# fpgautil -h
  
@@ -217,7 +226,7 @@ invalid command name "hsi::create_dt_node"
 ......
 ```
 
-    **Solution:** install `libtinfo5`. 
+    <span style="color: green">**Solution**</span>: install `libtinfo5`. 
     
     **Related issue:** [https://github.com/Xilinx/meta-xilinx-tools/issues/19](https://github.com/Xilinx/meta-xilinx-tools/issues/19).
 
@@ -256,7 +265,7 @@ invalid command name "hsi::create_dt_node"
 ```
     In recent linux kernel raw.h file was removed.
     
-    **Solution:** append this line in your `conf/local.conf` (<font color="green">preferred</font>)
+    <span style="color: green">**Solution**</span>: append this line in your `conf/local.conf` (<font color="green">preferred</font>)
     ```bash 
     # Fix configure: error: raw selected, but required raw.h header file not available for new host kernels
     EXTRA_OECONF_remove = "--enable-raw"

@@ -1,12 +1,12 @@
 ---
-title: "Convert bitstream to binary for fpgautil"
+title: "Convert bitstream to binary"
 permalink: /miscellaneous/bitstream-to-binary
 author_profile: true
 author: Raffaele Meloni
 toc: true
 ---
 
-If you want to load a bitstream at runtime from your OS, using `fpgautil`, you can generate a binary version directly from Vivado but if you want yo can convert the bit version into a binary one using `bootgen`.
+If you want to load a bitstream at runtime from your OS, using `fpgautil`, Vivado can generate a binary version for you, but if you want you can convert the bit version into a binary one using `bootgen`.
 
 
 **Last update the 25/03/2022** - Tutorial created by R. Meloni the 13/01/2022
@@ -18,7 +18,7 @@ If you encounter errors or if you have any doubts, please open an <a href="https
 
 
 ## Generate binary with bootgen
-Install `bootgen`, the tool that lets to stitch binary files together and generate device boot images:
+Install `bootgen`, a tool which stitches binary files together and generates device boot images:
 ```bash
 $ sudo apt-get install bootgen-xlnx
     

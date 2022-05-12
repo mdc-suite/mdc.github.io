@@ -8,9 +8,9 @@ toc: true
 ---
 
 
-The communication management among the Processing System (ARM) and the Programmable Logic (FPGA) sides is one the most important functionalities needed by a [heterogeneous system OS](yoctofpga), in order to develop software applications which exploit the hardware acceleration of FPGAs.
+The communication management between the Processing System (ARM) and the Programmable Logic (FPGA) sides is one the most important features needed by a [heterogeneous system OS](yoctofpga), in order to develop software applications which exploit the hardware acceleration of FPGAs.
 
-**Last update the 25/03/2022** - Tutorial created by R. Meloni the 25/03/2022
+**Last update the 11/05/2022** - Tutorial created by R. Meloni the 25/03/2022
 
 ## Contact us
 If you encounter errors or if you have any doubts, please open an <a href="https://github.com/mdc-suite/mdc-suite.github.io/issues" target="_blank">issue</a> on GitHub, or send an e-mail to:
@@ -20,11 +20,11 @@ If you encounter errors or if you have any doubts, please open an <a href="https
 
 
 ## Direct Memory Access
-The Direct Memory Access (DMA) is a method for accessing the main memory (DDR) without tying up the CPU, and therefore leaving the it available to perform other operations during the reading.
+The Direct Memory Access (DMA) is a method for accessing the main memory (DDR) without tying up the CPU, and therefore leaving it available to perform other operations during the reading.
 
-This guide presents* how to develop a **heterogeneous application**, divided in two main part, whose communication has been implemented using <a href="https://www.xilinx.com/support/documentation/ip_documentation/axi_dma/v7_1/pg021_axi_dma.pdf" target="_blank">AXI DMA</a> and <a href="https://www.xilinx.com/support/documentation/ip_documentation/ug761_axi_reference_guide.pdf" target="_blank">AXI-Stream interface modules</a>:
- - **Hardware application**, running on the FPGA, made up by a custom hardware accelerator used to speed up the most onerous operations;
- - **Software application**, running on the CPU, delegated for control operations, like communication management, and the least onerous operations.
+This guide shows* how to develop a **heterogeneous application**  whose communication has been implemented using <a href="https://www.xilinx.com/support/documentation/ip_documentation/axi_dma/v7_1/pg021_axi_dma.pdf" target="_blank">AXI DMA</a> and <a href="https://www.xilinx.com/support/documentation/ip_documentation/ug761_axi_reference_guide.pdf" target="_blank">AXI-Stream interface modules</a> and consisting of two main parts,:
+ - **Hardware application**, running on the FPGA, made up by a custom hardware accelerator used to speed up the most onerous operations.
+ - **Software application**, running on the CPU, delegated for control operations, such as the communication management, and the least onerous operations.
 
 <div class="note">
 *This guide is partially derived by <a href="https://www.hackster.io/whitney-knitter/introduction-to-using-axi-dma-in-embedded-linux-5264ec" target="_bank">Introduction to Using AXI DMA in Embedded Linux</a> and it has been adapted to use the DMA by Yocto linux OS with a custom accelerator
