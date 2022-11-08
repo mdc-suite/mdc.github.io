@@ -5,7 +5,7 @@ permalink: /tutorials
 toc: true
 ---
 
-## [Installation guide](/tools/mdc/tutorials/setup)
+## [Installation guide](tutorials/setup)
 
 This tutorial covers the following topic:
 
@@ -29,5 +29,5 @@ This tutorial covers the following topic:
 
 
 Requirements:
-* [Installation guide](/tools/mdc/tutorials/setup)
+* [Installation guide](tutorials/setup)
 * [Get MDC Applications](https://github.com/mdc-suite/mdc-test)
