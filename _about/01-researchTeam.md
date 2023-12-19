@@ -25,41 +25,38 @@ She is currently an Associate Professor at the University of Sassari. She receiv
 * [Scholar](https://scholar.google.com/citations?hl=it&user=oikMcBoAAAAJ)
 * [LinkdIn](https://it.linkedin.com/in/fpalumbo80)
 
-## Raquel Lazcano
+## Claudio Rubattu
 
-<img src="/assets/images/rlazcano.jpg" width="120">
+<img src="/assets/images/claudio_rubattu.jpg" width="120">
 
-She is currently a postdoctoral researcher at the University of Sassari. She received her PhD (cum laude) at Universidad Politécnica de Madrid in 2020, defending the thesis entitled "Automatic Runtime Performance Optimization Methodology Applied to Dataflow-based Hyperspectral Imaging Cancer Detection Algorithms". 
-
-### Research interests
-
-* Automating the application of approximate computing techniques on heterogeneous substrates 
-* Biomedical applications
-
-### Public Profiles
-
-* [DBLP](https://dblp.org/pid/195/3184.html)
-* [Scopus](https://www.scopus.com/authid/detail.uri?authorId=57192839213)
-* [Publons](https://publons.com/researcher/4280463/raquel-lazcano/)
-* [Scholar](https://scholar.google.com/citations?hl=it&user=2Rj8v9EAAAAJ)
-* [LinkdIn](https://es.linkedin.com/in/raquel-lazcano-450989aa)
-
-## Daniel Madroñal
-
-<img src="/assets/images/dmadronal.jfif" width="120">
-
-He is currently a postdoctoral researcher at the University of Sassari. He received his PhD (cum laude) at Universidad Politécnica de Madrid in 2020, defending the thesis entitled "Energy Consumption Reduction on High Performance Embedded Systems for Hyperspectral Imaging Cancer Detection". 
+Claudio Rubattu is research assistant at the University of Sassari. He received his degree in electronic engineering from the University of Cagliari, Italy, in 2015 and his Ph.D. degree from the INSA Rennes in 2020. His thesis focused on the development of predictable models of architecture for multicore systems with hardware acceleration in the context of embedded systems and CPSs.
 
 ### Research interests
 
-* Code generation tools
-* Design automation for advanced reconfigurable hardware architectures
-* Real-time onboard processing
+* Reconfigurable systems 
+* Multi-core programming
+* Dataflow modeling
 
 ### Public Profiles
 
-* [DBLP](https://dblp.org/pid/201/1361.html)
-* [Scopus](https://www.scopus.com/authid/detail.uri?authorId=57192829417)
-* [Publons](https://publons.com/researcher/4317543/daniel-madronal/)
-* [Scholar](https://scholar.google.com/citations?hl=it&user=pSjXMoMAAAAJ)
-* [LinkdIn](https://es.linkedin.com/in/daniel-madro%C3%B1al-8a6304132)
+* [DBLP](https://dblp.org/pid/180/7471.html)
+* [Scholar](https://scholar.google.com/citations?user=eKsqMGUAAAAJ&hl=it&oi=ao)
+* [LinkdIn](https://www.linkedin.com/in/claudio-rubattu-8a6887115/)
+
+## Francesco Ratto
+
+<img src="/assets/images/francesco_ratto.jpg" width="120">
+
+He is currently a PhD candidate at the University of Cagliari. He received his Master's from the same institution in 2020. 
+
+### Research interests
+
+* Reconfigurable systems
+* High-level design methodologies
+* ML inference on FPGAs
+
+### Public Profiles
+
+* [DBLP](https://dblp.org/pid/321/8355.html)
+* [Scholar](https://scholar.google.com/citations?user=hvC0I-EAAAAJ&hl=it&oi=ao)
+* [LinkdIn](https://www.linkedin.com/in/francesco-ratto-551452237/)
